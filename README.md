@@ -36,22 +36,22 @@ import (
 )
 
 func main() {
-	// You can specify metric_name and where to output
+  // You can specify metric_name and where to output
   ddl := ddlog_go.NewddLogger("test.metric", os.Stderr)
 
-	// Set attributes
-	ddl.Attr("env", "production")
+  // Set attributes
+  ddl.Attr("env", "production")
 
-	// This line prints "test.metric 967809600 1 loglevel=INFO env=production"
-	ddl.INFO("1")
-	// This line prints "test.metric 967809601 2 loglevel=WARN env=production"
-	ddl.WARN("2")
+  // This line prints "test.metric 967809600 1 loglevel=INFO env=production"
+  ddl.INFO("1") 
+  // This line prints "test.metric 967809601 2 loglevel=WARN env=production"
+  ddl.WARN("2")
 
-	// ClearAttr clears all attributes
-	ddl.ClearAttr()
+  // ClearAttr clears all attributes
+  ddl.ClearAttr()
 
-	// This line prints "test.metric 967809600 1 loglevel=INFO env=production hoge=fuga"
-	ddl.Attr("env", "production").Attr("hoge", "fuga").INFO("1")
+  // This line prints "test.metric 967809600 1 loglevel=INFO env=production hoge=fuga"
+  ddl.Attr("env", "production").Attr("hoge", "fuga").INFO("1")
 }
 ```
 
